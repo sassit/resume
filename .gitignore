@@ -1,0 +1,12 @@
+# Files that must NEVER be committed to the public deploy repo
+*.pdf
+uploads/
+scraps/
+
+# Editor / OS junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

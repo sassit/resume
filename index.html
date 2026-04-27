@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tarik Sassi — Technical Leader & Full Stack Engineer</title>
+<meta name="description" content="Tarik Sassi — Technical Leader and Senior Full Stack Engineer. 20+ years in regulated banking. Zurich, Switzerland." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #03050B;
+    --bg-2: #070A18;
+    --panel-2: rgba(255,255,255,0.022);
+    --line: #121838;
+    --text: #E6EBFA;
+    --muted: #5C6890;
+    --soft: #A6B2D4;
+    --accent: #2A47C2;
+    --accent-2: #5572E8;
+    --grad: linear-gradient(135deg, #2A47C2 0%, #5572E8 100%);
+    --grad-bar: linear-gradient(90deg, #2A47C2 0%, #5572E8 100%);
+    --accent-rgb: 85, 114, 232;
+  }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body { overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* Layout */
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 720px) { .wrap { padding: 0 24px; } }
+
+  /* Top nav */
+  nav.top {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(31,31,31,0.72);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  nav.top .inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 40px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .signature {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .signature::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--grad);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb),0.6);
+  }
+  nav.top ul {
+    display: flex; gap: 36px; list-style: none;
+    font-size: 14px; letter-spacing: 0.06em; font-weight: 500;
+  }
+  nav.top ul a { color: var(--muted); transition: color .2s; }
+  nav.top ul a:hover, nav.top ul a.active { color: var(--text); }
+  @media (max-width: 720px) {
+    nav.top .inner { padding: 14px 24px; }
+    nav.top ul { gap: 18px; font-size: 12px; }
+    nav.top ul li:nth-child(n+4) { display: none; }
+  }
+
+  /* Hero */
+  header.hero {
+    position: relative;
+    padding: 110px 0 100px;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .eyebrow {
+    font-size: 13px; letter-spacing: 0.32em; font-weight: 500;
+    color: var(--soft); margin-bottom: 22px; text-transform: uppercase;
+  }
+  h1.name {
+    font-size: clamp(48px, 6.6vw, 88px);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  h1.name::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: var(--grad);
+    border-radius: 2px;
+    margin-top: 12px;
+  }
+  h1.name .accent {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .role {
+    font-size: 15px; letter-spacing: 0.25em;
+    color: var(--soft); text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 14px 28px;
+    margin-bottom: 36px;
+    font-size: 14px; color: var(--muted);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+  /* Hero stats card (right column) */
+  .hero-stats-card {
+    position: relative;
+    aspect-ratio: 1 / 1.05;
+    width: 100%;
+    max-width: 460px;
+    margin-left: auto;
+    background: var(--panel-2);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero-stats-card .avatar {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    z-index: 0;
+    opacity: 0.9;
+  }
+  .hero-stats-card .scanner {
+    position: absolute;
+    left: 0; right: 0;
+    top: 0;
+    height: 22%;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg,
+        transparent 0%,
+        rgba(var(--accent-rgb), 0.06) 35%,
+        rgba(var(--accent-rgb), 0.55) 78%,
+        rgba(255,255,255,0.85) 99%,
+        rgba(255,255,255,0) 100%
+      );
+    box-shadow:
+      0 0 24px 4px rgba(var(--accent-rgb), 0.45),
+      0 6px 36px 8px rgba(var(--accent-rgb), 0.25);
+    mix-blend-mode: screen;
+    animation: heroScan 7.2s cubic-bezier(.6,.05,.4,.95) infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes heroScan {
+    0%   { transform: translateY(-100%); opacity: 0; }
+    8%   { opacity: 1; }
+    50%  { transform: translateY(360%); opacity: 1; }
+    58%  { transform: translateY(360%); opacity: 0; }
+    62%  { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(-100%); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-stats-card .scanner { animation: none; opacity: 0.35; transform: translateY(180%); }
+  }
+  .hero-stats-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(11,12,15,0) 38%, rgba(11,12,15,0.6) 64%, rgba(11,12,15,0.94) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-stats-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.018) 0 8px, transparent 8px 16px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-stats-card .badge {
+    position: absolute; top: 22px; left: 22px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    z-index: 2;
+  }
+  .hero-stats-card .stats {
+    position: absolute; left: 28px; right: 28px; bottom: 28px;
+    z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px 18px;
+  }
+  .hero-stats-card .stat .n {
+    font-size: clamp(40px, 4.4vw, 54px); font-weight: 700;
+    background: var(--grad);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .hero-stats-card .stat .l {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    cursor: pointer;
+    border: none;
+    color: white;
+  }
+  .btn-primary {
+    background: var(--grad);
+    box-shadow: 0 8px 24px -10px rgba(var(--accent-rgb),0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -10px rgba(var(--accent-rgb),0.45); }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.16);
+    color: var(--text);
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); }
+
+  /* Hero portrait — placeholder with subtle gradient frame */
+  .portrait-wrap {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: 460px;
+    margin-left: auto;
+  }
+  .portrait-frame {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(var(--accent-rgb),0.12));
+    border-radius: 4px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .portrait-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.018) 0 8px, transparent 8px 16px);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .portrait-avatar {
+    z-index: 1;
+  }
+  .portrait-tag {
+    position: absolute; bottom: 18px; left: 18px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+  }
+  .portrait-glow {
+    position: absolute; inset: -40px;
+    background: radial-gradient(closest-side, rgba(var(--accent-rgb),0.18), transparent 70%);
+    z-index: -1;
+    filter: blur(20px);
+  }
+  @media (max-width: 900px) {
+    header.hero { padding: 100px 0 70px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .portrait-wrap { margin: 0 auto; max-width: 320px; }
+    .hero-stats-card { margin: 0 auto; max-width: 360px; }
+  }
+
+  /* Sections */
+  section { padding: 90px 0; position: relative; }
+  .section-head {
+    display: flex; align-items: center; gap: 18px;
+    margin-bottom: 48px;
+  }
+  .section-head .bar {
+    width: 56px; height: 2px; background: var(--grad);
+    border-radius: 4px;
+  }
+  .section-head h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .section-head .num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 13px; letter-spacing: 0.1em;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-card {
+    position: relative;
+    aspect-ratio: 1 / 1.05;
+    background: var(--panel-2);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .about-card .avatar {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    z-index: 0;
+    opacity: 0.85;
+  }
+  .about-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,12,15,0) 35%, rgba(11,12,15,0.55) 65%, rgba(11,12,15,0.92) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .about-card::before {
+    content: 'A';
+    position: absolute;
+    inset: 0;
+    display: none;
+    place-items: center;
+    font-size: clamp(160px, 22vw, 260px);
+    font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+  }
+  .about-card .badge {
+    position: absolute; top: 22px; left: 22px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    z-index: 2;
+  }
+  .about-card .stats {
+    position: absolute; left: 28px; bottom: 28px; right: 28px;
+    z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px;
+  }
+  .stat .n {
+    font-size: 36px; font-weight: 700;
+    background: var(--grad);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat .l {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .about-body p {
+    font-size: 16px; line-height: 1.75;
+    color: var(--soft);
+    margin-bottom: 18px;
+  }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-card { max-width: 360px; }
+  }
+  .about-grid--solo { display: block; }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .skill {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .skill .orb {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: var(--grad);
+    display: grid; place-items: center;
+    color: white;
+    font-size: 28px; font-weight: 700;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06) inset,
+      0 24px 40px -20px rgba(var(--accent-rgb),0.3);
+    position: relative;
+    margin-bottom: 18px;
+  }
+  .skill .orb::before {
+    content: ''; position: absolute; inset: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18), transparent 60%);
+    pointer-events: none;
+  }
+  .skill .label {
+    font-size: 14px; font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .skill .sub {
+    font-size: 11px; color: var(--muted);
+    margin-top: 4px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  @media (max-width: 900px) { .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; } .skill .orb { width: 110px; height: 110px; font-size: 22px; } }
+
+  /* Skills detailed table */
+  .skill-table {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .skill-row {
+    display: contents;
+  }
+  .skill-row > div {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .skill-row .cat {
+    font-size: 13px; letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 500;
+    padding-right: 24px;
+  }
+  .skill-row .tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tag {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: var(--soft);
+    font-weight: 400;
+    transition: border-color .2s, color .2s;
+  }
+  .tag:hover { border-color: rgba(var(--accent-rgb),0.5); color: var(--text); }
+  .tag.t-1 { border-color: rgba(var(--accent-rgb),0.45); }
+  .tag.t-2 { border-color: rgba(var(--accent-rgb),0.4); }
+  @media (max-width: 720px) { .skill-table { grid-template-columns: 1fr; } .skill-row .cat { padding-bottom: 8px; padding-top: 22px; border-bottom: none; } .skill-row > div:nth-child(2n) { padding-top: 0; } }
+
+  /* Languages */
+  .languages-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+  .lang { margin-bottom: 26px; }
+  .lang:last-child { margin-bottom: 0; }
+  .lang-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .lang-name { font-weight: 600; font-size: 18px; }
+  .lang-level { font-size: 12px; color: var(--muted); letter-spacing: 0.16em; text-transform: uppercase; }
+  .lang-bar {
+    height: 14px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.04);
+    overflow: hidden;
+    position: relative;
+  }
+  .lang-bar .fill {
+    height: 100%;
+    background: var(--grad-bar);
+    border-radius: 30px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .lang-bar.in .fill { transform: scaleX(var(--w, 1)); }
+
+  /* Studies */
+  .studies-list { display: flex; flex-direction: column; gap: 18px; }
+  .study {
+    display: flex; align-items: center; gap: 22px;
+    padding: 22px 24px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    transition: border-color .2s, transform .2s;
+  }
+  .study:hover { border-color: rgba(var(--accent-rgb),0.4); transform: translateX(4px); }
+  .study .icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--grad);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px -10px rgba(var(--accent-rgb),0.35);
+  }
+  .study .icon svg { width: 24px; height: 24px; fill: white; }
+  .study .text { flex: 1; }
+  .study .title { font-weight: 600; font-size: 17px; margin-bottom: 4px; }
+  .study .meta { font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
+  .study .year {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px; color: var(--soft); letter-spacing: 0.1em;
+  }
+  @media (max-width: 720px) { .languages-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  /* Experience timeline */
+  .exp-head {
+    display: flex; justify-content: space-between; align-items: end;
+    margin-bottom: 56px; gap: 32px;
+  }
+  .exp-head h2 { font-size: clamp(36px, 5vw, 56px); font-weight: 700; letter-spacing: -0.01em; }
+  .exp-head .lead { color: var(--muted); font-size: 15px; max-width: 380px; line-height: 1.6; }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    border-left: 1px solid var(--line);
+  }
+  .role-card {
+    position: relative;
+    padding: 0 0 56px 32px;
+    margin-left: -32px;
+  }
+  .role-card:last-child { padding-bottom: 0; }
+  .role-card::before {
+    content: '';
+    position: absolute;
+    left: -8px; top: 6px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--bg), 0 0 16px rgba(var(--accent-rgb),0.4);
+    transition: all .25s;
+  }
+  .role-card.current::before {
+    background: var(--grad);
+    border-color: transparent;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px var(--bg), 0 0 0 0 rgba(var(--accent-rgb),0.4);} 50% { box-shadow: 0 0 0 4px var(--bg), 0 0 0 8px rgba(21,185,185,0);} }
+
+  .role-meta {
+    display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-bottom: 10px;
+  }
+  .role-when {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.08em;
+  }
+  .role-where { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+  .role-where .pill {
+    display: inline-block; padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(var(--accent-rgb),0.12);
+    color: var(--accent);
+    margin-left: 6px;
+    font-size: 11px;
+  }
+  .role-where .pill.perm { background: rgba(var(--accent-rgb),0.18); color: var(--accent-2); }
+  .role-title {
+    font-size: 22px; font-weight: 600;
+    margin-bottom: 2px;
+    letter-spacing: -0.005em;
+  }
+  .role-company {
+    font-size: 16px; color: var(--soft);
+    margin-bottom: 18px;
+  }
+  .role-company .at { color: var(--muted); }
+  .role-stack {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 16px;
+  }
+  .role-stack span {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.04);
+    color: var(--soft);
+    letter-spacing: 0.04em;
+  }
+  .role-bullets {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .role-bullets li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--soft);
+  }
+  .role-bullets li::before {
+    content: '';
+    position: absolute; left: 0; top: 11px;
+    width: 6px; height: 1.5px;
+    background: var(--accent);
+  }
+
+  /* Earlier career */
+  .earlier {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .earlier:last-child { border-bottom: none; }
+  .earlier .when { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; padding-top: 4px; }
+  .earlier .what strong { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .earlier .what .desc { font-size: 14px; color: var(--soft); }
+  @media (max-width: 720px) { .earlier { grid-template-columns: 1fr; gap: 4px; } .timeline { padding-left: 24px; } .role-card { padding-left: 24px; } }
+
+  /* Certifications */
+  .certs-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  .cert {
+    display: flex; gap: 16px; align-items: center;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+  }
+  .cert .y {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px; color: var(--accent); letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+  .cert .t { font-size: 14px; color: var(--soft); line-height: 1.45; }
+  @media (max-width: 720px) { .certs-grid { grid-template-columns: 1fr; } }
+
+  /* Contact */
+  .contact-band {
+    margin: 80px 0 0;
+    padding: 80px 40px;
+    background: linear-gradient(180deg, rgba(var(--accent-rgb),0.06), rgba(var(--accent-rgb),0.02));
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+  }
+  .contact-band h2 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .contact-band p { color: var(--muted); margin-bottom: 32px; font-size: 15px; }
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 880px; margin: 40px auto 0;
+  }
+  .contact-card {
+    padding: 22px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    transition: border-color .2s, transform .2s;
+  }
+  .contact-card:hover { border-color: rgba(var(--accent-rgb),0.5); transform: translateY(-2px); }
+  .contact-card .l { font-size: 11px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+  .contact-card .v { font-size: 14px; color: var(--text); word-break: break-word; }
+  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr 1fr; } .contact-band { padding: 64px 20px; } }
+
+  /* Footer */
+  footer {
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px; letter-spacing: 0.06em;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  footer .sig { font-family: 'Alex Brush', cursive; font-size: 22px; color: var(--soft); }
+
+  /* Redacted text — masks employer names */
+  .gated-text {
+    color: transparent !important;
+    background: linear-gradient(90deg, rgba(255,255,255,0.07), rgba(var(--accent-rgb),0.14), rgba(255,255,255,0.07));
+    background-size: 200% 100%;
+    border-radius: 4px;
+    user-select: none;
+    padding: 2px 8px;
+    animation: shimmer 3.4s ease-in-out infinite;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+  .gated-text * { color: transparent !important; }
+  /* Industry hint shown alongside the redacted name */
+  .role-industry {
+    display: inline-block; margin-left: 8px;
+    font-size: 13px; color: var(--muted);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    letter-spacing: 0.02em;
+  }
+  .role-industry::before { content: '— '; opacity: 0.5; }
+  /* Bullets are blurred but readable as shape, not text */
+  .gated-bullets li {
+    color: transparent !important;
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    margin-bottom: 6px;
+    padding-left: 18px !important;
+    height: 1.4em;
+    overflow: hidden;
+    user-select: none;
+  }
+  .gated-bullets li::before { background: rgba(255,255,255,0.15) !important; }
+  /* Variable-width blur bars for visual rhythm */
+  .gated-bullets li:nth-child(1) { width: 92%; }
+  .gated-bullets li:nth-child(2) { width: 78%; }
+  .gated-bullets li:nth-child(3) { width: 85%; }
+  .gated-bullets li:nth-child(4) { width: 70%; }
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 0; }
+    50% { background-position: 100% 0; }
+  }
+  .role-card { position: relative; }
+  .role-card::after {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 14px; height: 14px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.35)' stroke-width='2'><rect x='3' y='11' width='18' height='11' rx='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>");
+    background-repeat: no-repeat;
+    opacity: 0.6;
+  }
+
+  /* Gate banner (always visible) */
+  .gate-banner {
+    margin: 0 0 24px;
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    border-radius: 10px;
+    padding: 16px 22px;
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .gate-banner .gb-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--grad);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+  .gate-banner .gb-text { flex: 1; min-width: 200px; font-size: 13.5px; line-height: 1.5; color: var(--soft); }
+  .gate-banner .gb-text strong { color: var(--text); display: block; font-size: 14px; margin-bottom: 2px; }
+  .gate-banner .gb-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .gate-banner button {
+    font: inherit; cursor: pointer; padding: 9px 16px;
+    border-radius: 6px; font-size: 13px; font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    transition: border-color .15s, background .15s;
+  }
+  .gate-banner button.primary {
+    background: var(--grad);
+    border-color: transparent;
+  }
+  .gate-banner button:hover {
+    border-color: rgba(var(--accent-rgb), 0.5);
+  }
+
+  /* Request modal */
+  .req-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(3, 5, 11, 0.88);
+    backdrop-filter: blur(12px);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .req-overlay.open { display: flex; }
+  .req-modal {
+    width: 100%; max-width: 460px;
+    background: var(--bg-2);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+  }
+  .req-modal h3 {
+    font-size: 22px; font-weight: 600; margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .req-modal > p {
+    color: var(--muted); font-size: 14px;
+    line-height: 1.55; margin-bottom: 22px;
+  }
+  .req-modal label {
+    display: block;
+    font-size: 12px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.12em;
+    margin: 14px 0 6px;
+    font-weight: 500;
+  }
+  .req-modal input, .req-modal textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--text);
+    font: inherit; font-size: 14px;
+    outline: none;
+    transition: border-color .15s;
+    box-sizing: border-box;
+  }
+  .req-modal textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+  .req-modal input:focus, .req-modal textarea:focus { border-color: var(--accent-2); }
+  .req-actions { display: flex; gap: 10px; margin-top: 22px; }
+  .req-actions button {
+    flex: 1; padding: 12px; border-radius: 8px;
+    font: inherit; cursor: pointer; font-weight: 500; font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    transition: border-color .15s, background .15s;
+  }
+  .req-actions button.primary {
+    background: var(--grad);
+    border-color: transparent;
+  }
+  .req-actions button:hover:not(:disabled) { border-color: rgba(var(--accent-rgb), 0.5); }
+  .req-actions button:disabled { opacity: 0.5; cursor: wait; }
+  .req-status { font-size: 13px; margin-top: 14px; min-height: 20px; }
+  .req-status.error { color: #E63946; }
+  .req-status.ok { color: #4CB17A; }
+  .req-success {
+    text-align: center; padding: 12px 0;
+  }
+  .req-success .check {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(76, 177, 122, 0.15);
+    border: 1px solid rgba(76, 177, 122, 0.4);
+    display: grid; place-items: center;
+    margin: 0 auto 18px;
+    color: #4CB17A;
+  }
+  .req-success h4 { font-size: 18px; margin-bottom: 8px; }
+  .req-success p { color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+  /* Locked portrait — unused (replaced by avatar.webp) */
+  .portrait-locked {
+    position: absolute; inset: 0;
+    background: var(--panel-2);
+    border-radius: 4px;
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .portrait-locked::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 12px, transparent 12px 24px),
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(var(--accent-rgb),0.10));
+  }
+  .portrait-locked .silhouette {
+    position: relative; z-index: 1;
+    width: 60%; height: 70%;
+    display: grid; place-items: center;
+    color: rgba(255,255,255,0.18);
+  }
+  .portrait-locked .silhouette svg { width: 100%; height: 100%; }
+  .portrait-locked .lock-text {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    z-index: 2;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .portrait-locked .lock-text::before {
+    content: '🔒'; font-size: 14px;
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Print */
+  @media print {
+    nav.top, .contact-band, .cta-row, .portrait-wrap, .hero-stats-card, .gate-banner { display: none; }
+    body { background: white; color: black; }
+    section { padding: 20px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="#top" class="signature">Tarik Sassi</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <!-- Gate banner — always visible, page is permanently redacted -->
+    <div class="gate-banner" role="region" aria-label="Privacy notice">
+      <div class="gb-icon" aria-hidden="true">🔒</div>
+      <div class="gb-text">
+        <strong>Some details are redacted</strong>
+        Employer names and role descriptions are blurred. Recruiters &amp; hiring partners — request the full CV and I’ll reply by email.
+      </div>
+      <div class="gb-actions">
+        <button class="primary" id="openReqBtn">Request CV</button>
+      </div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Welcome — I'm</div>
+        <h1 class="name">Tarik Sassi.</h1>
+        <div class="role">Technical Leader · Full Stack Engineer</div>
+        <div class="hero-meta">
+          <span><i class="dot"></i> Zurich, Switzerland</span>
+          <span><i class="dot"></i> 20+ years in regulated banking</span>
+          <span><i class="dot"></i> DE / CH</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn btn-primary" id="openReqBtnHero" type="button">
+            Request CV
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/tariksassi" target="_blank" rel="noopener">
+            LinkedIn
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-stats-card">
+        <img class="avatar" src="avatar.webp" alt="Profile (anonymous)" />
+        <div class="scanner" aria-hidden="true"></div>
+        <span class="badge">Profile</span>
+        <div class="stats">
+          <div class="stat"><div class="n">20+</div><div class="l">Years engineering</div></div>
+          <div class="stat"><div class="n">8</div><div class="l">Tier-1 banks</div></div>
+          <div class="stat"><div class="n">5×</div><div class="l">Batch speedup</div></div>
+          <div class="stat"><div class="n">2</div><div class="l">Founded ventures</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="bar"></div>
+      <h2>About</h2>
+      <span class="num">01 / 05</span>
+    </div>
+    <div class="about-grid about-grid--solo">
+      <div class="about-body">
+        <p><strong>Technical Leader and Senior Full Stack Engineer</strong> with 20+ years in regulated banking environments — multiple Tier-1 Swiss and global banks — across Java/Spring and Angular.</p>
+        <p>Known for turning around underperforming systems, including a 5× batch processing improvement at a major Swiss bank, and for establishing engineering governance and leading offshore teams in high-compliance environments.</p>
+        <p>Former CTO and Co-Founder with a track record of shipping in both large-bank and startup settings. Currently applying an <strong>AI development harness</strong> — quality gates, pipeline monitoring, requirements engineering — built and refined over two years in personal projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="bar"></div>
+      <h2>My Skills</h2>
+      <span class="num">02 / 05</span>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill"><div class="orb">Java</div><div class="label">Spring Boot</div><div class="sub">Backend</div></div>
+      <div class="skill"><div class="orb">Kotlin</div><div class="label">JVM Languages</div><div class="sub">Backend</div></div>
+      <div class="skill"><div class="orb">Angular</div><div class="label">TypeScript</div><div class="sub">Frontend</div></div>
+      <div class="skill"><div class="orb">AI</div><div class="label">Agentic Dev</div><div class="sub">Harness</div></div>
+    </div>
+
+    <div class="skill-table">
+      <div class="skill-row"><div class="cat">Languages</div><div class="tags"><span class="tag t-1">Java</span><span class="tag t-1">Kotlin</span><span class="tag">JavaScript / TypeScript</span><span class="tag">Scala</span><span class="tag">Python</span></div></div>
+      <div class="skill-row"><div class="cat">Backend</div><div class="tags"><span class="tag t-1">Spring Boot</span><span class="tag t-1">Spring Integration</span><span class="tag t-1">Spring Batch</span><span class="tag">Hibernate</span><span class="tag">OpenAPI</span><span class="tag">AsyncAPI</span><span class="tag">Testcontainers</span><span class="tag">Onion / Hexagonal Architecture</span></div></div>
+      <div class="skill-row"><div class="cat">AI Development</div><div class="tags"><span class="tag t-2">Claude Code</span><span class="tag t-2">LangChain / LangGraph</span><span class="tag t-2">Agentic Workflows</span><span class="tag t-2">MCPs</span></div></div>
+      <div class="skill-row"><div class="cat">Frontend</div><div class="tags"><span class="tag t-1">Angular</span><span class="tag">Vue</span><span class="tag">React</span></div></div>
+      <div class="skill-row"><div class="cat">DevOps / Cloud</div><div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">CI/CD</span><span class="tag">GitHub Actions</span><span class="tag">Maven</span><span class="tag">Gradle</span><span class="tag">Azure DevOps</span><span class="tag">GitLab</span><span class="tag">SonarQube</span></div></div>
+      <div class="skill-row"><div class="cat">Messaging</div><div class="tags"><span class="tag t-1">Kafka</span><span class="tag t-1">JMS</span></div></div>
+      <div class="skill-row"><div class="cat">Data</div><div class="tags"><span class="tag t-1">Oracle</span><span class="tag">Liquibase</span><span class="tag">Flyway</span><span class="tag">PostgreSQL</span><span class="tag">Elasticsearch</span></div></div>
+      <div class="skill-row"><div class="cat">Domain</div><div class="tags"><span class="tag t-2">Financial systems</span><span class="tag t-2">Low-latency trading</span><span class="tag t-2">FIX Protocol</span><span class="tag t-2">FX algorithms</span><span class="tag t-2">Liquidity onboarding</span></div></div>
+      <div class="skill-row"><div class="cat">Leadership</div><div class="tags"><span class="tag">Agile Delivery</span><span class="tag">Team leadership</span><span class="tag">Technical leadership</span><span class="tag">People management</span><span class="tag">Offshore management</span><span class="tag">TDD</span><span class="tag">Vendor management</span><span class="tag">Architecture governance</span><span class="tag">Stakeholder management</span><span class="tag">SAFe / Scaled Agile</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="languages-edu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="bar"></div>
+      <h2>Language &amp; Studies</h2>
+      <span class="num">03 / 05</span>
+    </div>
+    <div class="languages-grid">
+      <div>
+        <h3 style="font-size:18px; font-weight:600; margin-bottom:24px; letter-spacing:0.04em;">Languages</h3>
+        <div class="lang">
+          <div class="lang-head"><span class="lang-name">German</span><span class="lang-level">Native</span></div>
+          <div class="lang-bar"><div class="fill" style="--w:1"></div></div>
+        </div>
+        <div class="lang">
+          <div class="lang-head"><span class="lang-name">English</span><span class="lang-level">C1 / C2</span></div>
+          <div class="lang-bar"><div class="fill" style="--w:0.95"></div></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:18px; font-weight:600; margin-bottom:24px; letter-spacing:0.04em;">Education</h3>
+        <div class="studies-list">
+          <div class="study">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+            </div>
+            <div class="text">
+              <div class="title">Bachelor of Engineering</div>
+              <div class="meta">Communication &amp; Computer Science · ZHAW, Winterthur</div>
+            </div>
+            <div class="year">2003</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:18px; font-weight:600; margin: 36px 0 16px; letter-spacing:0.04em;">Certifications</h3>
+        <div class="certs-grid" style="grid-template-columns:1fr;">
+          <div class="cert"><span class="y">2023</span><span class="t">encode.club Solidity Bootcamp — Certified Blockchain Developer</span></div>
+          <div class="cert"><span class="y">2014</span><span class="t">Baruch MFE — C++ Programming for Financial Engineering</span></div>
+          <div class="cert"><span class="y">2010</span><span class="t">Certified Scrum Master — Scrum Alliance</span></div>
+          <div class="cert"><span class="y">2009</span><span class="t">ACI Trader Certificate — FX / MM</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="exp-head">
+      <h2>Experience</h2>
+      <p class="lead">Two decades shipping software in tier-1 banks, fintech start-ups, and crypto. Selected roles below — full history available on request.</p>
+    </div>
+
+    <div class="timeline" id="timeline"></div>
+
+    <h3 style="margin: 64px 0 18px; font-size:14px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); font-weight:500;">Earlier Career</h3>
+    <div class="earlier-list">
+      <div class="earlier"><div class="when">Jul 2008 — Jan 2011</div><div class="what"><strong>Lead Software Engineer · <span class="gated-text" data-real="Credit Suisse">Tier-1 Swiss bank</span></strong><div class="desc">FX Algo Trading — team of 4</div></div></div>
+      <div class="earlier"><div class="when">May 2005 — Jun 2008</div><div class="what"><strong>Senior Software Engineer · <span class="gated-text" data-real="UBS">Tier-1 Swiss bank</span></strong><div class="desc">Lexidia — Legal Case Management</div></div></div>
+      <div class="earlier"><div class="when">Aug 1999 — May 2005</div><div class="what"><strong>Software Engineer · Start-ups</strong><div class="desc">SMS / MMS-based services</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0;">
+  <div class="contact-band">
+    <h2>Interested in working together?</h2>
+    <p>Available for senior engineering and technical leadership roles in Zurich and remote. The fastest way to reach me is to request the CV — I’ll reply by email within 24 hours.</p>
+    <button class="btn btn-primary" id="openReqBtnContact" type="button" style="font:inherit;cursor:pointer;border:none;">
+      Request CV
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+    <div class="contact-grid" style="max-width:440px;grid-template-columns:1fr 1fr;">
+      <a class="contact-card" href="https://linkedin.com/in/tariksassi" target="_blank" rel="noopener"><div class="l">LinkedIn</div><div class="v">in/tariksassi</div></a>
+      <a class="contact-card" href="https://github.com/sassit" target="_blank" rel="noopener"><div class="l">GitHub</div><div class="v">sassit</div></a>
+    </div>
+  </div>
+  <div class="wrap">
+    <footer>
+      <span class="sig" style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: -0.01em;">Tarik Sassi</span>
+      <span>© 2026 · Zurich, Switzerland</span>
+    </footer>
+  </div>
+</section>
+
+<script>
+  // Timeline data
+  const roles = [
+    {
+      current: true,
+      when: 'May 2025 — Present',
+      where: 'Zurich',
+      type: 'contract',
+      title: 'Senior Software Engineer',
+      company: 'Swiss National Bank',
+      industry: 'Central bank — financial regulation',
+      stack: ['Java','Spring Boot','Angular','Onion / Hexagonal','Qwen Coder','DeepSeek','GitLab','Jenkins'],
+      bullets: [
+        "Building the SNB's credit survey platform, used by all Swiss financial institutions to fulfill periodic regulatory reporting obligations.",
+        'Improving the Spring Boot service test harness and building Angular frontends to support the regulatory submission workflow.'
+      ]
+    },
+    {
+      when: 'May 2024 — Dec 2024',
+      where: 'Remote',
+      type: 'contract',
+      title: 'Senior Software Engineer',
+      company: 'PostFinance',
+      industry: 'Tier-1 Swiss bank',
+      stack: ['Java 21','Kubernetes','Kafka','JMS','Spring Integration','OpenAPI','GitLab','SonarQube'],
+      bullets: [
+        "Built the second generation of PostFinance's test data platform, using SEDA architecture to generate synthetic data and minimize reliance on production data in test environments.",
+        'Drove contract-first development by automating interface generation from OpenAPI / AsyncAPI specs and introduced Testcontainers to catch integration issues early.'
+      ]
+    },
+    {
+      when: 'Sep 2023 — Jan 2024',
+      where: '',
+      title: 'Sabbatical — Self-directed Study',
+      company: 'Mathematics for Machine Learning',
+      industry: 'Self-directed',
+      stack: ['Calculus 3','Linear Algebra'],
+      bullets: [
+        'Took time to study advanced mathematics — Calculus 3 and Linear Algebra — to build a solid foundation for machine learning.'
+      ]
+    },
+    {
+      when: 'Jan 2023 — Aug 2023',
+      where: 'Zurich',
+      type: 'permanent',
+      title: 'CTO',
+      company: 'Cerchia',
+      industry: 'Climate-risk fintech — Avalanche L1',
+      stack: ['Strategy & Management','Avalanche','Solidity','Chainlink'],
+      bullets: [
+        'Led the technical delivery of a climate-risk trading marketplace on Avalanche from scratch — responsible for architecture decisions, technology choices, smart contract design, and production rollout.',
+        'Managed outsourcing vendors in Poland and Romania and the DID integration provider — a distributed team of 8 delivering to production every two weeks.',
+        'Defined the engineering strategy and technology adoption roadmap, aligning product vision with delivery capacity across a cross-border team.'
+      ]
+    },
+    {
+      when: 'Jun 2022 — Dec 2022',
+      where: 'Zurich',
+      type: 'contract',
+      title: 'Senior Software Engineer',
+      company: 'UBS',
+      industry: 'Tier-1 global bank — credit cards',
+      stack: ['Java','Spring Boot'],
+      bullets: [
+        "Designed and built the APIs used by partner banks to connect with UBS's credit card infrastructure.",
+        'Helped the team improve engineering practices and tighten up the delivery process.'
+      ]
+    },
+    {
+      when: 'Sep 2021 — May 2022',
+      where: 'Zurich',
+      type: 'contract',
+      title: 'Lead Software Engineer',
+      company: 'Credit Suisse',
+      industry: 'Tier-1 global bank — trust funds',
+      stack: ['Java','Spring Boot/Data/Batch','Elasticsearch','TDD','Kafka','SonarQube'],
+      bullets: [
+        'Inherited a trust-fund application in red status, cleaned up years of technical debt, and got delivery back on track.',
+        'Introduced proper test coverage and refactored the batch processing layer, cutting execution time by 5×.',
+        'Established a lightweight agile process and quality governance framework, restoring delivery predictability and raising engineering standards across the codebase.'
+      ]
+    },
+    {
+      when: 'Feb 2021 — Aug 2021',
+      where: 'Zurich',
+      type: 'contract',
+      title: 'Senior Software Engineer',
+      company: 'Die Mobiliar',
+      industry: 'Swiss insurer',
+      stack: ['Scala','Kafka','Spring Boot','Onion / Hexagonal'],
+      bullets: [
+        'Overhauled CI/CD pipelines to cut build times and give developers faster feedback loops.',
+        'Built a Kafka consumer and REST API to expose financial product tranche status, making it easier to monitor and debug in production.'
+      ]
+    },
+    {
+      when: 'Oct 2019 — Jan 2021',
+      where: 'Zurich',
+      type: 'permanent',
+      title: 'Co-Founder',
+      company: 'Alysidia GmbH',
+      industry: 'Blockchain start-up — R3 Corda',
+      stack: ['Angular','Kotlin','R3 Corda','Spring Boot','Terraform','Kubernetes','Azure DevOps'],
+      bullets: [
+        'Set up the CI/CD pipeline and DevSecOps practices across Terraform, Kubernetes, Istio, and Helm — including vulnerability scanning and security gates to make deployments fast, repeatable, and secure.',
+        'Built the Angular frontend and wired up the backend through OpenAPI contracts and R3 Corda smart contracts.',
+        'Wrote the business plan and shaped the product roadmap, making sure engineering effort went where it mattered most.'
+      ]
+    },
+    {
+      when: 'Oct 2019 — Sep 2020',
+      where: 'Zurich',
+      type: 'contract',
+      title: 'Senior Software Engineer',
+      company: 'ZKB · Zürcher Kantonalbank',
+      industry: 'Tier-1 Swiss bank — mobile pension product',
+      stack: ['Java 11','Spring Boot/Batch','Vaadin'],
+      bullets: [
+        'Built the backend for "frankly", ZKB\'s mobile app for personal pension saving.',
+        'Delivered an internal Vaadin frontend used by bank staff to manage the product.',
+        'Built the marketing module and push-notification system on Spring Batch to drive customer engagement.'
+      ]
+    },
+    {
+      when: 'Feb 2019 — Jul 2019',
+      where: 'Zug',
+      type: 'contract',
+      title: 'Senior Software Engineer',
+      company: 'SEBA Crypto AG',
+      industry: 'Crypto bank — booking integration',
+      stack: ['Kotlin','Spring Boot','UTXO'],
+      bullets: [
+        "Integrated SEBA's core booking system with Taurus' Blockchain API, with a strong focus on clean interfaces and operational observability."
+      ]
+    },
+    {
+      when: 'Oct 2016 — Feb 2019',
+      where: 'Zurich',
+      type: 'permanent',
+      title: 'Lead Software Engineer',
+      company: 'Julius Baer',
+      industry: 'Tier-1 Swiss private bank',
+      stack: ['Java 10','Oracle','Hibernate','TDD','Spring Core/Batch','Hazelcast','Elasticsearch'],
+      bullets: [
+        'Built the lifecycle event handling for reverse convertible structured products.',
+        "Co-built a greenfield advisory platform for client portfolio management — one of the bank's core modernization projects.",
+        'Designed and built the batch engine powering multi-service risk analysis jobs across large volumes of quantitative data.'
+      ]
+    },
+    {
+      when: 'Mar 2013 — Aug 2016',
+      where: 'Singapore',
+      type: 'permanent',
+      title: 'Lead Software Engineer (VP)',
+      company: 'Standard Chartered',
+      industry: 'Tier-1 global bank — prime brokerage / FX',
+      stack: ['Java 8','Hibernate','TDD','Spring','Apama','AngularJS','Haskell','FIX Protocol','SonarQube'],
+      bullets: [
+        'Led a team of 4 engineers building the prime brokerage system and ran the FX algo trading platform day-to-day.',
+        'Built the FIX protocol interface for internal trading and managed the onboarding and integration of external liquidity providers, steadily growing the connected network.',
+        'Worked closely with round-the-clock support teams across Singapore, London, and New York to keep the platform running.'
+      ]
+    },
+    {
+      when: 'Feb 2011 — Sep 2012',
+      where: 'Hong Kong',
+      type: 'contract',
+      title: 'Senior Software Engineer',
+      company: 'HSBC',
+      industry: 'Tier-1 global bank — FX / credit risk',
+      stack: ['Java','Scrum','TDD','Event Sourcing','Low Latency','Spring Integration'],
+      bullets: [
+        'Built a low-latency credit-check module and the REST service feeding real-time RMDS data updates.',
+        'Set up an automated build, test, and release pipeline with static analysis, cutting manual steps and catching issues earlier.',
+        "Integrated OANDA's FX retail platform into HSBC's master book, adding a new retail FX execution channel."
+      ]
+    }
+  ];
+
+  function pillFor(type) {
+    if (!type) return '';
+    if (type === 'contract') return '<span class="pill">Contract</span>';
+    if (type === 'permanent') return '<span class="pill perm">Permanent</span>';
+    return '';
+  }
+
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = roles.map(r => `
+    <article class="role-card${r.current ? ' current' : ''} reveal">
+      <div class="role-meta">
+        <span class="role-when">${r.when}</span>
+        ${r.where ? `<span class="role-where">${r.where}${pillFor(r.type)}</span>` : ''}
+      </div>
+      <div class="role-title">${r.title}</div>
+      <div class="role-company"><span class="at">@</span> <span class="gated-text" data-real="${r.company.replace(/"/g, '&quot;')}">${r.industry || 'Redacted'}</span>${r.industry ? `<span class="role-industry">${r.industry}</span>` : ''}</div>
+      <div class="role-stack">${r.stack.map(s => `<span>${s}</span>`).join('')}</div>
+      <ul class="role-bullets gated-bullets" aria-label="Role description (redacted)">${r.bullets.map(() => `<li></li>`).join('')}</ul>
+    </article>
+  `).join('');
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.role-card, .lang-bar, section .section-head, .skill, .study, .cert, .about-card, .about-body').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+  // Active nav
+  const sections = ['about','skills','experience','contact'].map(id => document.getElementById(id)).filter(Boolean);
+  const navLinks = document.querySelectorAll('nav.top ul a');
+  function setActive() {
+    const y = window.scrollY + 120;
+    let active = '';
+    sections.forEach(s => { if (s.offsetTop <= y) active = s.id; });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active));
+  }
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+
+  /* ===========================================================
+     REQUEST CV — Formspree-backed contact gate
+     - Page is permanently in redacted mode for everyone.
+     - Visitors fill a form → submission goes to Formspree → email lands in inbox.
+     - Tarik's email/phone are NEVER in the source.
+     =========================================================== */
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meevbedn';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('reqOverlay');
+    const form = document.getElementById('reqForm');
+    const success = document.getElementById('reqSuccess');
+    const cancelBtn = document.getElementById('reqCancel');
+    const submitBtn = document.getElementById('reqSubmit');
+    const closeBtn = document.getElementById('reqClose');
+    const status = document.getElementById('reqStatus');
+    const nameInput = document.getElementById('reqName');
+
+    function open() {
+      overlay.classList.add('open');
+      form.style.display = '';
+      success.style.display = 'none';
+      status.textContent = '';
+      status.className = 'req-status';
+      form.reset();
+      setTimeout(() => nameInput && nameInput.focus(), 50);
+    }
+    function close() { overlay.classList.remove('open'); }
+
+    document.querySelectorAll('#openReqBtn, #openReqBtnHero, #openReqBtnContact')
+      .forEach(b => b.addEventListener('click', open));
+    cancelBtn.addEventListener('click', close);
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      cancelBtn.disabled = true;
+      status.textContent = 'Sending…';
+      status.className = 'req-status';
+
+      const data = new FormData(form);
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data,
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = '';
+          status.textContent = '';
+        } else {
+          const j = await res.json().catch(() => ({}));
+          status.textContent = j?.errors?.[0]?.message || 'Could not send. Please try again later.';
+          status.className = 'req-status error';
+        }
+      } catch (err) {
+        status.textContent = 'Network error. Please check your connection and try again.';
+        status.className = 'req-status error';
+      } finally {
+        submitBtn.disabled = false;
+        cancelBtn.disabled = false;
+      }
+    });
+  });
+</script>
+
+<!-- Request CV modal -->
+<div class="req-overlay" id="reqOverlay" role="dialog" aria-modal="true" aria-labelledby="reqTitle">
+  <div class="req-modal">
+    <div id="reqForm-wrap">
+      <h3 id="reqTitle">Request the full CV</h3>
+      <p>Tell me a bit about who you are and what you're looking for. I'll reply within 24 hours with the full CV and any context relevant to your role.</p>
+      <form id="reqForm" novalidate>
+        <label for="reqName">Your name</label>
+        <input id="reqName" name="name" type="text" required autocomplete="name" />
+
+        <label for="reqEmail">Email</label>
+        <input id="reqEmail" name="email" type="email" required autocomplete="email" />
+
+        <label for="reqCompany">Company</label>
+        <input id="reqCompany" name="company" type="text" required autocomplete="organization" />
+
+        <label for="reqMessage">Role / context</label>
+        <textarea id="reqMessage" name="message" required placeholder="What role are you recruiting for, or what context are you reaching out about?"></textarea>
+
+        <!-- Honeypot for bots -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div id="reqStatus" class="req-status" aria-live="polite"></div>
+
+        <div class="req-actions">
+          <button type="button" id="reqCancel">Cancel</button>
+          <button type="submit" class="primary" id="reqSubmit">Send request</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="reqSuccess" class="req-success" style="display:none;">
+      <div class="check" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5L20 7"/></svg>
+      </div>
+      <h4>Request sent</h4>
+      <p>Thanks — I'll reply within 24 hours with the full CV.</p>
+      <div class="req-actions">
+        <button type="button" id="reqClose" class="primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

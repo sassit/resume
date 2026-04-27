@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects
+# Format: <source> <destination> <status>
+#
+# Subdomain hiring.sassi.digital is the only host — no www variant needed.
+# If you ever expose other paths (e.g. /cv.pdf), redirect them here.
+
+# /cv  /  302
+# /cv.pdf  /  302

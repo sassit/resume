@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/tsassi/Workspace/resume/logs/.a6188f7e4c39d426ba88330b40b0dda6f7322d63-audit.json",
+    "files": [
+        {
+            "date": 1777388292461,
+            "name": "/Users/tsassi/Workspace/resume/logs/mcp-puppeteer-2026-04-28.log",
+            "hash": "5306f3aab41f63e330adc1488ca19e4410072192bf4bd4dd8298376946df7520"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -92,7 +92,13 @@
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: 60px;
-    align-items: center;
+    align-items: start;
+  }
+  .hero-grid > .hero-stats-card,
+  .hero-grid > div:first-child { margin-top: 56px; }
+  @media (max-width: 900px) {
+    .hero-grid > .hero-stats-card,
+    .hero-grid > div:first-child { margin-top: 0; }
   }
   .eyebrow {
     font-size: 13px; letter-spacing: 0.32em; font-weight: 500;
@@ -128,7 +134,7 @@
   }
   .hero-meta {
     display: flex; flex-wrap: wrap; gap: 14px 28px;
-    margin-bottom: 36px;
+    margin-bottom: 64px;
     font-size: 14px; color: var(--muted);
   }
   .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
@@ -433,6 +439,24 @@
     background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18), transparent 60%);
     pointer-events: none;
   }
+  .skill .orb-green {
+    background:
+      radial-gradient(circle at 32% 22%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 32%),
+      linear-gradient(160deg, #3FB389 0%, #1F7A5A 32%, #0E3B2E 65%, #196048 100%);
+    box-shadow:
+      inset 0 22px 44px -14px rgba(255,255,255,0.22),
+      inset 0 -28px 50px -12px rgba(0,0,0,0.55),
+      0 24px 40px -20px rgba(31, 122, 90, 0.55);
+  }
+  .skill .orb-orange {
+    background:
+      radial-gradient(circle at 32% 22%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 32%),
+      linear-gradient(160deg, #FFD089 0%, #F2A93B 32%, #B8430E 65%, #D86A1E 100%);
+    box-shadow:
+      inset 0 22px 44px -14px rgba(255,255,255,0.28),
+      inset 0 -28px 50px -12px rgba(0,0,0,0.5),
+      0 24px 40px -20px rgba(242, 169, 59, 0.55);
+  }
   .skill .label {
     font-size: 14px; font-weight: 500;
     color: var(--text);
@@ -472,15 +496,52 @@
     font-size: 13px;
     padding: 6px 12px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 50%, rgba(0,0,0,0.18) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
     color: var(--soft);
     font-weight: 400;
-    transition: border-color .2s, color .2s;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.08) inset,
+      0 -1px 0 rgba(0,0,0,0.25) inset;
+    transition: border-color .2s, color .2s, box-shadow .2s;
   }
   .tag:hover { border-color: rgba(var(--accent-rgb),0.5); color: var(--text); }
   .tag.t-1 { border-color: rgba(var(--accent-rgb),0.45); }
   .tag.t-2 { border-color: rgba(var(--accent-rgb),0.4); }
+  .tag.tag-green {
+    border-color: rgba(63, 179, 137, 0.55);
+    color: #B6E6CF;
+    background:
+      linear-gradient(180deg, rgba(63,179,137,0.22) 0%, rgba(31,122,90,0.10) 50%, rgba(14,59,46,0.35) 100%);
+    box-shadow:
+      0 1px 0 rgba(180,240,210,0.18) inset,
+      0 -1px 0 rgba(0,0,0,0.35) inset;
+  }
+  .tag.tag-green:hover {
+    border-color: rgba(63, 179, 137, 0.95);
+    color: #E6FBF1;
+    box-shadow:
+      0 1px 0 rgba(180,240,210,0.28) inset,
+      0 -1px 0 rgba(0,0,0,0.4) inset,
+      0 0 14px -2px rgba(31,122,90,0.55);
+  }
+  .tag.tag-orange {
+    border-color: rgba(242, 169, 59, 0.55);
+    color: #F5D9A8;
+    background:
+      linear-gradient(180deg, rgba(255,208,137,0.22) 0%, rgba(242,169,59,0.10) 50%, rgba(184,67,14,0.35) 100%);
+    box-shadow:
+      0 1px 0 rgba(255,224,180,0.22) inset,
+      0 -1px 0 rgba(0,0,0,0.35) inset;
+  }
+  .tag.tag-orange:hover {
+    border-color: rgba(242, 169, 59, 0.95);
+    color: #FDEFD3;
+    box-shadow:
+      0 1px 0 rgba(255,224,180,0.32) inset,
+      0 -1px 0 rgba(0,0,0,0.4) inset,
+      0 0 14px -2px rgba(242,169,59,0.55);
+  }
   @media (max-width: 720px) { .skill-table { grid-template-columns: 1fr; } .skill-row .cat { padding-bottom: 8px; padding-top: 22px; border-bottom: none; } .skill-row > div:nth-child(2n) { padding-top: 0; } }
 
   /* Languages */
@@ -544,11 +605,11 @@
 
   /* Experience timeline */
   .exp-head {
-    display: flex; justify-content: space-between; align-items: end;
-    margin-bottom: 56px; gap: 32px;
+    display: block;
+    margin-bottom: 56px;
   }
-  .exp-head h2 { font-size: clamp(36px, 5vw, 56px); font-weight: 700; letter-spacing: -0.01em; }
-  .exp-head .lead { color: var(--muted); font-size: 15px; max-width: 380px; line-height: 1.6; }
+  .exp-head h2 { font-size: clamp(36px, 5vw, 56px); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+  .exp-head .lead { color: var(--muted); font-size: 15px; max-width: 640px; line-height: 1.6; }
 
   .timeline {
     position: relative;
@@ -1019,22 +1080,22 @@
     </div>
 
     <div class="skills-grid">
-      <div class="skill"><div class="orb">Java</div><div class="label">Spring Boot</div><div class="sub">Backend</div></div>
-      <div class="skill"><div class="orb">Kotlin</div><div class="label">JVM Languages</div><div class="sub">Backend</div></div>
-      <div class="skill"><div class="orb">Angular</div><div class="label">TypeScript</div><div class="sub">Frontend</div></div>
-      <div class="skill"><div class="orb">AI</div><div class="label">Agentic Dev</div><div class="sub">Harness</div></div>
+      <div class="skill"><div class="orb orb-green">Java</div><div class="label">Spring Boot</div><div class="sub">Backend</div></div>
+      <div class="skill"><div class="orb orb-green">Spring</div><div class="label">Framework</div><div class="sub">Backend</div></div>
+      <div class="skill"><div class="orb orb-green">Angular</div><div class="label">TypeScript</div><div class="sub">Frontend</div></div>
+      <div class="skill"><div class="orb orb-orange">AI</div><div class="label">Agentic Dev</div><div class="sub">Harness</div></div>
     </div>
 
     <div class="skill-table">
-      <div class="skill-row"><div class="cat">Languages</div><div class="tags"><span class="tag t-1">Java</span><span class="tag t-1">Kotlin</span><span class="tag">JavaScript / TypeScript</span><span class="tag">Scala</span><span class="tag">Python</span></div></div>
-      <div class="skill-row"><div class="cat">Backend</div><div class="tags"><span class="tag t-1">Spring Boot</span><span class="tag t-1">Spring Integration</span><span class="tag t-1">Spring Batch</span><span class="tag">Hibernate</span><span class="tag">OpenAPI</span><span class="tag">AsyncAPI</span><span class="tag">Testcontainers</span><span class="tag">Onion / Hexagonal Architecture</span></div></div>
-      <div class="skill-row"><div class="cat">AI Development</div><div class="tags"><span class="tag t-2">Claude Code</span><span class="tag t-2">LangChain / LangGraph</span><span class="tag t-2">Agentic Workflows</span><span class="tag t-2">MCPs</span></div></div>
-      <div class="skill-row"><div class="cat">Frontend</div><div class="tags"><span class="tag t-1">Angular</span><span class="tag">Vue</span><span class="tag">React</span></div></div>
-      <div class="skill-row"><div class="cat">DevOps / Cloud</div><div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">CI/CD</span><span class="tag">GitHub Actions</span><span class="tag">Maven</span><span class="tag">Gradle</span><span class="tag">Azure DevOps</span><span class="tag">GitLab</span><span class="tag">SonarQube</span></div></div>
-      <div class="skill-row"><div class="cat">Messaging</div><div class="tags"><span class="tag t-1">Kafka</span><span class="tag t-1">JMS</span></div></div>
-      <div class="skill-row"><div class="cat">Data</div><div class="tags"><span class="tag t-1">Oracle</span><span class="tag">Liquibase</span><span class="tag">Flyway</span><span class="tag">PostgreSQL</span><span class="tag">Elasticsearch</span></div></div>
-      <div class="skill-row"><div class="cat">Domain</div><div class="tags"><span class="tag t-2">Financial systems</span><span class="tag t-2">Low-latency trading</span><span class="tag t-2">FIX Protocol</span><span class="tag t-2">FX algorithms</span><span class="tag t-2">Liquidity onboarding</span></div></div>
-      <div class="skill-row"><div class="cat">Leadership</div><div class="tags"><span class="tag">Agile Delivery</span><span class="tag">Team leadership</span><span class="tag">Technical leadership</span><span class="tag">People management</span><span class="tag">Offshore management</span><span class="tag">TDD</span><span class="tag">Vendor management</span><span class="tag">Architecture governance</span><span class="tag">Stakeholder management</span><span class="tag">SAFe / Scaled Agile</span></div></div>
+      <div class="skill-row"><div class="cat">Languages</div><div class="tags"><span class="tag tag-green">Java</span><span class="tag tag-green">Kotlin</span><span class="tag tag-green">JavaScript / TypeScript</span><span class="tag tag-orange">Scala</span><span class="tag">Python</span></div></div>
+      <div class="skill-row"><div class="cat">Backend</div><div class="tags"><span class="tag tag-green">Spring Boot</span><span class="tag tag-green">Spring Integration</span><span class="tag tag-green">Spring Batch</span><span class="tag tag-green">Hibernate</span><span class="tag tag-green">OpenAPI</span><span class="tag tag-green">Testcontainers</span><span class="tag tag-orange">Onion / Hexagonal Architecture</span></div></div>
+      <div class="skill-row"><div class="cat">AI Development</div><div class="tags"><span class="tag tag-green">Claude Code</span><span class="tag tag-orange">Agentic Workflows</span><span class="tag tag-orange">LangChain / LangGraph</span><span class="tag tag-orange">MCPs</span></div></div>
+      <div class="skill-row"><div class="cat">Frontend</div><div class="tags"><span class="tag tag-green">Angular</span><span class="tag tag-orange">Vue</span><span class="tag">React</span></div></div>
+      <div class="skill-row"><div class="cat">DevOps / Cloud</div><div class="tags"><span class="tag tag-green">Maven</span><span class="tag tag-green">Gradle</span><span class="tag tag-green">Docker</span><span class="tag tag-green">CI/CD</span><span class="tag tag-orange">Kubernetes</span><span class="tag tag-orange">GitLab</span><span class="tag tag-orange">Helm</span><span class="tag">GitHub Actions</span><span class="tag">Azure DevOps</span><span class="tag">SonarQube</span></div></div>
+      <div class="skill-row"><div class="cat">Messaging</div><div class="tags"><span class="tag tag-green">Kafka</span><span class="tag tag-green">JMS</span><span class="tag tag-orange">AsyncAPI</span></div></div>
+      <div class="skill-row"><div class="cat">Data</div><div class="tags"><span class="tag tag-green">Oracle</span><span class="tag tag-green">Liquibase</span><span class="tag tag-green">Flyway</span><span class="tag tag-orange">PostgreSQL</span><span class="tag">Elasticsearch</span></div></div>
+      <div class="skill-row"><div class="cat">Domain</div><div class="tags"><span class="tag tag-green">Financial systems</span><span class="tag tag-green">Low-latency trading</span><span class="tag tag-green">FIX Protocol</span><span class="tag tag-green">FX algorithms</span><span class="tag tag-green">Liquidity onboarding</span></div></div>
+      <div class="skill-row"><div class="cat">Leadership</div><div class="tags"><span class="tag tag-green">TDD</span><span class="tag tag-green">Agile Delivery</span><span class="tag tag-green">Team leadership</span><span class="tag tag-green">Technical leadership</span><span class="tag tag-green">People management</span><span class="tag tag-green">Offshore management</span><span class="tag tag-orange">Vendor management</span><span class="tag tag-orange">Architecture governance</span><span class="tag tag-orange">Stakeholder management</span><span class="tag">SAFe / Scaled Agile</span></div></div>
     </div>
   </div>
 </section>

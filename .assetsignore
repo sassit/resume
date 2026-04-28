@@ -1,0 +1,7 @@
+README.md
+logs/
+.git/
+.gitignore
+.claude/
+wrangler.jsonc
+.assetsignore
